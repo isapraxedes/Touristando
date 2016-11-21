@@ -1,0 +1,127 @@
+<div class="jumbotron center-block">
+	<h2 id="Titulo" class="text-center">Cadastro de locais</h2>
+
+	<form #form="ngForm">
+
+	<!--div id="messages" class="alert alert-danger hidden" role="alert">
+	  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+	  <span class="sr-only">Error:</span>
+	  Preencha todos os campos!
+	</div-->
+
+		<div id="nameGroup" class="form-group">
+			<label>Nome:</label>
+			<input class="form-control" [(ngModel)] = "newLocal.name"  type="text" name="name" placeholder="Digite o nome" required/>
+		</div>
+
+		<div id="adressGroup" class="form-group">
+			<label class="control-label" for="adress">Endereço:</label>
+			<input type="text" [(ngModel)] ="newLocal.adress" name="adress" class="form-control" placeholder="Digite o endereço" required>
+		</div>		
+					
+		<div class="row">
+			<div id="cityGroup" class="form-group">
+				<div class="col-xs-6">
+					<label class="control-label" for="city">Cidade:</label>
+					<input type="text" [(ngModel)] ="newLocal.city" name="city" class="form-control" placeholder="Cidade" required>
+				</div>
+					
+				<div class="col-xs-6">
+					<label class="control-label" for="state">Estado:</label>
+					<input type="text" [(ngModel)] ="newLocal.state" name="state" class="form-control" placeholder="Estado" required>
+				</div>
+			</div>
+		</div>
+
+		<div id="coordenadasGroup" class="form-group">
+		<label class="control-label" for="coordinatesX">Coordenadas de localização:</label>
+				
+			<div class="row">
+				<div class="col-xs-2">
+					<label class="control-label" for="coordinatesX">Latitude</label>
+					<input type="text" [(ngModel)] ="newLocal.coordinatesX" name="coordinatesX" class="form-control" placeholder="Lat." required>
+				</div>
+				<div class="col-xs-2">
+					<label class="control-label" for="coordinatesY">Longitude</label>
+					<input type="text" [(ngModel)] ="newLocal.coordinatesY" name="coordinatesY" class="form-control" placeholder="Long." required>
+				</div>
+			</div>
+		</div>
+
+		<div id="categoryGroup" class="form-group">
+			<label class="control-label">Categoria:</label>
+			<select [(ngModel)] ="newLocal.category" name="category" class="form-control" required>
+				<option value="">-</option>
+				<option value="bares">Bares</option>
+				<option value="restaurantes">Restaurantes</option>
+				<option value="shopping">Shopping</option>
+				<option value="hospedagem">Hotéis e Pousadas</option>
+				<option value="casas de show">Casas de show</option>
+				<option value="museus">Museus</option>
+				<option value="esportes radicais">Esportes Radicais</option>
+				<option value="estadios">Estadios e Arenas</option>
+				<option value="parques">Parques</option>
+				<option value="praias">Praias</option>
+				<option value="rios">Rios, Lagos e Cachoeiras</option>
+			</select>
+		</div>
+
+		<div id="hourGroup" class="form-group">
+			<label class="control-label" for="hourOpen">Horário de Funcionamento:</label>
+			<div class="row">
+				<div class="col-xs-3">
+					<label class="control-label" for="hourOpen">Entrada</label>
+					<input type="time" [(ngModel)] ="newLocal.hourOpen" name="hourOpen" class="form-control" placeholder="Inicial" required>
+				</div>
+				<div class="col-xs-3">
+					<label class="control-label" for="close">Saída</label>
+					<input type="time" [(ngModel)] ="newLocal.hourClose" name="hourClose" class="form-control" placeholder="Fim" required>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group" id="observationGroup">
+			<label>Observações:</label><br/>
+			<textarea type="text" class="form-control" name="observation" [(ngModel)] ="newLocal.observation" rows= "4"></textarea>
+		</div>
+
+		<div class="ui-fileupload-buttonbar ui-widget-header ui-corner-top">
+                <button type="button" [label]="chooseLabel" icon="fa-plus" pButton class="ui-fileupload-choose" (click)="onChooseClick($event, fileinput)" [disabled]="disabled"> 
+                    <input #fileinput type="file" (change)="onFileSelect($event)" [multiple]="multiple" [accept]="accept" [disabled]="disabled">
+                </button>
+                <button type="button" [label]="uploadLabel" icon="fa-upload" pButton (click)="upload()" [disabled]="!hasFiles()"></button>
+                <button type="button" [label]="cancelLabel" icon="fa-close" pButton (click)="clear()" [disabled]="!hasFiles()"></button>
+            </div>
+
+		<!--div id="imagesGroup" class="form-group">
+			<input type="file" [(ngModel)] ="newLocal.images" name="images" class="form-control">
+		</div-->
+			
+		<div class= "btn-group pull-right">
+			<button [disabled]="!form.valid" class="btn btn-primary" (click)="create()" >Cadastrar</button>
+		</div>
+	</form>
+
+	<div class="clearfix"></div>
+
+	<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Locais cadastrados</h4>
+
+	<span *ngIf="locals == 0">Não há locais cadastrados</span>
+
+	<table *ngIf="locals != 0" class="table table-striped table-bordered">
+		<tr>
+			<th>Nome</th>
+			<th>Cidade</th>
+			<th>Estado</th>
+			<th></th>
+		</tr>
+		<tr *ngFor="let local of locals | async">
+			<td>{{local.name}}</td>
+			<td>{{local.city}}</td>
+			<td>{{local.state}}</td>
+			<td>
+				<a href="#" (click)="delete(local.$key)"><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			</td>
+		</tr>
+	</table>
+</div>
