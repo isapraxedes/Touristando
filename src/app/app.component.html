@@ -1,14 +1,26 @@
-`
-  				<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+  			<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 				  <div class="container-fluid">
-					<div class="navbar-header">
-					  <h1 class="logotipo"><img src="/app/img/sol.png" alt="Touristando"></h1>
-					  <ul class="nav navbar-nav">
-						<li><a routerLink="/search">Home</a></li>
-						<li><a routerLink="/create">Compartilhar novos lugares</a></li>
-					  </ul>
-					</div>
+  					<div class="navbar-header">
+              <div class="autocomplete">
+  					       <h1 class="logotipo"><img src="/app/img/sol.png" alt="Touristando"></h1>
+                   <span *ngFor="let item of refs; let i = index">
+                      <template [ngIf]="i > 0">, </template>
+                      {{item}}
+                   </span>
+                   <input class="query" [(ngModel)]="nameSearch" [cdAutocomplete]="inputAutocomplete"
+                   (cdAutocompleteUpdate)="updateInputAutocomplete($event)" type="text" placeholder="enter text"/>
+                   <!--ul *ngFor="item of filteredList" >
+                    <li >
+                        <a (click)="select(item)">{{item}}</a>
+                    </li>
+                  </ul-->
+              </div>
+  					  <ul class="nav navbar-nav">
+    						<li><a routerLink="/search">Home</a></li>
+    						<li><a routerLink="/create">Compartilhar novos lugares</a></li>
+  					  </ul>
+  					</div>
 				  </div>
 				</nav>
-			   <router-outlet></router-outlet>
-			 `
+			  <router-outlet></router-outlet>

@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 import { HttpModule } from '@angular/http';
-import {FileUploadModule, GrowlModule} from 'primeng/primeng';
+import {FileUploadModule,AutoCompleteModule, GrowlModule} from 'primeng/primeng';
+import { Ng2UploaderModule } from 'ng2-uploader';
+import { CdAutocompleteComponent, CdAutocompleteDirective } from "./directives/index";
 
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
@@ -27,13 +29,15 @@ const myFirebaseAuthConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent, SearchComponent, CreateComponent
+    AppComponent, SearchComponent, CreateComponent, CdAutocompleteComponent,
+    CdAutocompleteDirective,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    FileUploadModule, GrowlModule,
+    Ng2UploaderModule,
+    FileUploadModule,AutoCompleteModule, GrowlModule,
     AngularFireModule.initializeApp(firebaseConfig , myFirebaseAuthConfig),
     RouterModule.forRoot([
       {
@@ -51,6 +55,7 @@ const myFirebaseAuthConfig = {
       }
     ])
   ],
+  entryComponents: [CdAutocompleteComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

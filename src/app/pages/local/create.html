@@ -17,15 +17,15 @@
 		<div id="adressGroup" class="form-group">
 			<label class="control-label" for="adress">Endereço:</label>
 			<input type="text" [(ngModel)] ="newLocal.adress" name="adress" class="form-control" placeholder="Digite o endereço" required>
-		</div>		
-					
+		</div>
+
 		<div class="row">
 			<div id="cityGroup" class="form-group">
 				<div class="col-xs-6">
 					<label class="control-label" for="city">Cidade:</label>
 					<input type="text" [(ngModel)] ="newLocal.city" name="city" class="form-control" placeholder="Cidade" required>
 				</div>
-					
+
 				<div class="col-xs-6">
 					<label class="control-label" for="state">Estado:</label>
 					<input type="text" [(ngModel)] ="newLocal.state" name="state" class="form-control" placeholder="Estado" required>
@@ -35,7 +35,7 @@
 
 		<div id="coordenadasGroup" class="form-group">
 		<label class="control-label" for="coordinatesX">Coordenadas de localização:</label>
-				
+
 			<div class="row">
 				<div class="col-xs-2">
 					<label class="control-label" for="coordinatesX">Latitude</label>
@@ -85,18 +85,18 @@
 			<textarea type="text" class="form-control" name="observation" [(ngModel)] ="newLocal.observation" rows= "4"></textarea>
 		</div>
 
-		<div class="ui-fileupload-buttonbar ui-widget-header ui-corner-top">
-                <button type="button" [label]="chooseLabel" icon="fa-plus" pButton class="ui-fileupload-choose" (click)="onChooseClick($event, fileinput)" [disabled]="disabled"> 
+		<!--div class="ui-fileupload-buttonbar ui-widget-header ui-corner-top">
+                <button type="button" [label]="chooseLabel" icon="fa-plus" pButton class="ui-fileupload-choose" (click)="onChooseClick($event, fileinput)" [disabled]="disabled">
                     <input #fileinput type="file" (change)="onFileSelect($event)" [multiple]="multiple" [accept]="accept" [disabled]="disabled">
                 </button>
                 <button type="button" [label]="uploadLabel" icon="fa-upload" pButton (click)="upload()" [disabled]="!hasFiles()"></button>
                 <button type="button" [label]="cancelLabel" icon="fa-close" pButton (click)="clear()" [disabled]="!hasFiles()"></button>
-            </div>
+            </div-->
 
-		<!--div id="imagesGroup" class="form-group">
+		<div id="imagesGroup" class="form-group">
 			<input type="file" [(ngModel)] ="newLocal.images" name="images" class="form-control">
-		</div-->
-			
+		</div>
+
 		<div class= "btn-group pull-right">
 			<button [disabled]="!form.valid" class="btn btn-primary" (click)="create()" >Cadastrar</button>
 		</div>

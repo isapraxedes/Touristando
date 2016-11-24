@@ -18,9 +18,24 @@ body {
     -o-background-size: cover;
 }
 
+.query{
+  position: absolute;
+  margin-left: 220px;
+  top:25px;
+  width:300px;
+
+
+}
 .nav ul li {
   display: inline;
   margin-left: 20px;
+}
+
+.autocomplete{
+  display: inline;
+  position: absolute;
+  left: 5px;
+  bottom: 0;
 }
 
 .nav {
@@ -31,9 +46,9 @@ body {
 
 .logotipo {
   position: relative;
-  top:5px;
+  top:10px;
   padding-left: 120px;
-  margin-top: 5px; 
+  margin-top: 5px;
 }
 
 .jumbotron {
