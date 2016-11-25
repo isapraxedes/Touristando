@@ -85,14 +85,6 @@
 			<textarea type="text" class="form-control" name="observation" [(ngModel)] ="newLocal.observation" rows= "4"></textarea>
 		</div>
 
-		<!--div class="ui-fileupload-buttonbar ui-widget-header ui-corner-top">
-                <button type="button" [label]="chooseLabel" icon="fa-plus" pButton class="ui-fileupload-choose" (click)="onChooseClick($event, fileinput)" [disabled]="disabled">
-                    <input #fileinput type="file" (change)="onFileSelect($event)" [multiple]="multiple" [accept]="accept" [disabled]="disabled">
-                </button>
-                <button type="button" [label]="uploadLabel" icon="fa-upload" pButton (click)="upload()" [disabled]="!hasFiles()"></button>
-                <button type="button" [label]="cancelLabel" icon="fa-close" pButton (click)="clear()" [disabled]="!hasFiles()"></button>
-            </div-->
-
 		<div id="imagesGroup" class="form-group">
 			<input type="file" [(ngModel)] ="newLocal.images" name="images" class="form-control">
 		</div>

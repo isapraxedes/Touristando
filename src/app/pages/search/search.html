@@ -14,16 +14,18 @@
 
         <!-- Projects Row -->
 
-        <div class="row">
+        <span *ngIf="locals == 0">Não há locais cadastrados</span>
 
-            <div  class="col-md-4 portfolio-item" >
+        <div class="row" *ngIf="locals != 0" >
+
+            <div  class="col-md-4 portfolio-item" *ngFor="let local of locals | async" >
                 <a href="#">
                     <img class="img-responsive" src="http://placehold.it/700x400" alt="">
                 </a>
                 <h3>
-                    <a href="#">Project Name</a>
+                    <a href="#">{{local.name}}</a>
                 </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                <p>{{local.city}} - {{local.state}}</p>
             </div>
             <div class="col-md-4 portfolio-item">
                 <a href="#">
@@ -34,16 +36,7 @@
                 </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
-            <div class="col-md-4 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href="#">Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-        </div>
+              </div>
         <!-- /.row -->
 
         <!-- Projects Row -->
