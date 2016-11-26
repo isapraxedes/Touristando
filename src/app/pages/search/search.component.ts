@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Local } from './../../model/local';
-import { CreateComponent } from './../pages/local/create.component';
+import { CreateComponent } from './../../pages/local/create.component';
 
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
@@ -20,9 +20,7 @@ export class SearchComponent {
     this.locals = af.database.list('/locals', {
     query: {
         orderByChild: 'city',
-      }
-  });
-  }
-
-  let list: Local[] = [];
+        }
+      });
+    }
  }

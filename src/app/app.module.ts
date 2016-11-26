@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 
 import { SearchComponent } from './pages/search/search.component';
 import { CreateComponent } from './pages/local/create.component';
-
+import { QuestComponent } from './pages/quest/quest.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyByymDKnaWKUA-ZbgTeXPc_MCCW0UH7DEY',
@@ -29,7 +29,7 @@ const myFirebaseAuthConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent, SearchComponent, CreateComponent, CdAutocompleteComponent,
+    AppComponent, SearchComponent, CreateComponent, QuestComponent, CdAutocompleteComponent,
     CdAutocompleteDirective,
   ],
   imports: [
@@ -47,6 +47,10 @@ const myFirebaseAuthConfig = {
       {
         path: 'create',
         component: CreateComponent
+      },
+      {
+        path: 'quest',
+        component: QuestComponent
       },
       {
         path: '',
