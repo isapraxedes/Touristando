@@ -14,14 +14,24 @@ export class AutenticationComponent {
   email: string;
   password: string;
   logins: FirebaseListObservable<User[]>;
-
+  log: boolean;
 
   constructor(private af: AngularFire) {
     this.logins = af.database.list('/users');
+    var user = firebase.auth().currentUser;
+    if (user) {
+      this.log = true;
+    } else {
+      this.log = false;
+    }
   }
+
   login(email, password){
     firebase.auth().signInWithEmailAndPassword(this.email, this.password);
-    close();
+    }
+
+  logout(){
+    firebase.auth().signOut();
   }
 
   closed() {
