@@ -16,8 +16,6 @@ export class CreateComponent{
   constructor(private af: AngularFire) {
   	this.initLocal();
 
-    this.af.auth.login({ email: 'vl@cin.ufpe.br', password: '123456' });
-
 	  this.locals = af.database.list('/locals', {
     query: {
         orderByChild: 'city',

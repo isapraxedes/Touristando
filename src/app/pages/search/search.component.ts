@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Local } from './../../model/local';
 import { CreateComponent } from './../../pages/local/create.component';
+import { QuestComponent } from './../../pages/quest/quest.component';
 
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
@@ -15,12 +16,26 @@ export class SearchComponent {
 
   constructor(private af: AngularFire) {
 
-    this.af.auth.login({ email: 'vl@cin.ufpe.br', password: '123456' });
-
     this.locals = af.database.list('/locals', {
     query: {
         orderByChild: 'city',
         }
       });
     }
- }
+
+    selectedItem: Local = null;
+
+    /*constructor(private sls: ShoppingListService) {}
+
+    ngOnInit() {
+      this.items = this.sls.getItems();
+    }*/
+
+    getLocals(id: string) {
+      return this.locals[id];
+    }
+
+    onSelectItem(item: Local) {
+      this.selectedItem = item;
+    }
+   }

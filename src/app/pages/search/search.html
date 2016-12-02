@@ -20,10 +20,10 @@
 
             <div  class="col-md-4 portfolio-item" *ngFor="let local of locals | async" >
                 <a href="/quest">
-                    <img class="img-responsive" src={{local.images}} alt="">
+                    <img class="img-responsive" (click)="onSelectItem(item)"  src={{local.images}} alt="">
                 </a>
                 <h3>
-                    <a href="/quest">{{local.name}}</a>
+                    <a (click)="onSelectItem(item)" href="/quest">{{local.name}}</a>
                 </h3>
                 <p>{{local.city}} - {{local.state}}</p>
             </div>

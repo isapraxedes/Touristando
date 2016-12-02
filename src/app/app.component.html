@@ -8,14 +8,16 @@
                       <template [ngIf]="i > 0">, </template>
                       {{item}}
                    </span>
-                   <input class="query" [(ngModel)]="nameSearch" [cdAutocomplete]="inputAutocomplete"
-                   (cdAutocompleteUpdate)="updateInputAutocomplete($event)" type="text" placeholder="enter text"/>
+                   <input class="query" [cdAutocomplete]="inputAutocomplete"
+                   (cdAutocompleteUpdate)="updateInputAutocomplete($event)" [(ngModel)]="filterQuery" type="text" placeholder="Nome do local"/>
               </div>
   					  <ul class="nav navbar-nav">
     						<li><a routerLink="/search">Home</a></li>
     						<li><a routerLink="/create">Compartilhar novos lugares</a></li>
-  					  </ul>
-  					</div>
+                <li><a routerLink="/detail">Lugares cadastrados</a></li>
+                <button type="button" class="tn btn-primary" (click)="modal.open()">Sign in</button>
+              </ul>
+            </div>
 				  </div>
 				</nav>
 			  <router-outlet></router-outlet>
@@ -28,3 +30,15 @@
             </div>
             <!-- /.row -->
         </footer>
+
+        <modal (onClose)="closed()" #modal>
+         <modal-header [show-close]="true">
+             <h4 class="modal-title">Fazer Login</h4>
+         </modal-header>
+         <modal-body>
+             <ul>
+               <autentic> </autentic>
+             </ul>
+             <p *ngIf="selected">Selected: <b>{{ selected }}</b></p>
+         </modal-body>
+       </modal>

@@ -92,28 +92,6 @@
 		<div class= "btn-group pull-right">
 			<button [disabled]="!form.valid" class="btn btn-primary" (click)="create()" >Cadastrar</button>
 		</div>
+		<br>
 	</form>
-
-	<div class="clearfix"></div>
-
-	<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Locais cadastrados</h4>
-
-	<span *ngIf="locals == 0">Não há locais cadastrados</span>
-
-	<table *ngIf="locals != 0" class="table table-striped table-bordered">
-		<tr>
-			<th>Nome</th>
-			<th>Cidade</th>
-			<th>Estado</th>
-			<th></th>
-		</tr>
-		<tr *ngFor="let local of locals | async">
-			<td>{{local.name}}</td>
-			<td>{{local.city}}</td>
-			<td>{{local.state}}</td>
-			<td>
-				<a href="#" (click)="delete(local.$key)"><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-			</td>
-		</tr>
-	</table>
 </div>

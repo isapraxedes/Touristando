@@ -1,0 +1,21 @@
+<form #form="ngForm">
+
+<!--div id="messages" class="alert alert-danger hidden" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  Preencha todos os campos!
+</div-->
+
+  <div id="emailGroup" class="form-group">
+    <label>E-mail:</label>
+    <input class="form-control" [(ngModel)] = "email"  type="text" name="email" placeholder="nome@email.com" required/>
+  </div>
+
+  <div id="passwordGroup" class="form-group">
+    <label class="control-label" for="password">Password:</label>
+    <input type="password" [(ngModel)] ="password" name="password" class="form-control" placeholder="Digite um password - min 6 caracteres" required minlenght="6">
+  </div>
+
+  <a routerLink="/create-user" (click)="modal.close()" class="btn btn-primary btn-lg btn-block" role="button">Criar novo usuário</a>
+   <button type="button" class="btn btn-sucess btn-lg btn-block" (click)="login(email, password)">Login</button>
+</form>
